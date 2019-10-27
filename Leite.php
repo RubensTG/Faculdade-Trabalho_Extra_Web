@@ -7,7 +7,7 @@ class Leite extends Produto implements Perecivel{
 	private $dataValidade;
 
 	public function estaVencido(){
-		$dataHoje = date("d/m/Y");
+		$dataHoje = date("Y/m/d");
 		if($this->dataValidade >= $dataHoje){
 			return false;
 		}else{

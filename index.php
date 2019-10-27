@@ -8,12 +8,12 @@ $DVD2 = new DVD(2, 10, "Os Simpsons: o Filme", 2007);
 $DVD3 = new DVD(3, 13, "Hachi: A Dog's Tale", 2009);
 $DVD4 = new DVD(4, 12, "À Procura da Felicidade", 2006);
 //Estoque de leites-ID-Preço-Marca---Volume-Data de validade-----------------------------------------------------------
-$Leite1 = new Leite(5, 12, "Nestlé", 1000, "22/10/2019");
-$Leite2 = new Leite(6, 13, "Italac", 1000, "26/10/2019");
-$Leite3 = new Leite(7, 14, "Ninho", 1000, "26/10/2019");
-$Leite4 = new Leite(8, 15, "Parmalat", 1000, "21/10/2019");
-$Leite5 = new Leite(9, 16, "Itambé", 1000, "26/10/2019");
-$Leite6 = new Leite(10, 17, "Cotochés", 1000, "27/10/2019");
+$Leite1 = new Leite(5, 12, "Nestlé", 1000, date("2019/11/25"));
+$Leite2 = new Leite(6, 13, "Italac", 1000, date("2019/12/25"));
+$Leite3 = new Leite(7, 14, "Ninho", 1000, date("2019/10/25"));
+$Leite4 = new Leite(8, 15, "Parmalat", 1000, date("2020/10/25"));
+$Leite5 = new Leite(9, 16, "Itambé", 1000, date("2018/10/25"));
+$Leite6 = new Leite(10, 17, "Cotochés", 1000, date("2019/10/30"));
 //Array do estoque-----------------------------------------------------------------------------------------------------
 $estoque = array($DVD1->codigo => $DVD1,
 	$DVD2->codigo => $DVD2,
@@ -25,6 +25,14 @@ $estoque = array($DVD1->codigo => $DVD1,
 	$Leite4->codigo => $Leite4,
 	$Leite5->codigo => $Leite5,
 	$Leite6->codigo => $Leite6);
+//Tentei retornar no formato JSON mas não consegui pois tem obj dentro do Array----------------------------------------
+//Tá retornando JSON vazio---------------------------------------------------------------------------------------------
+/*for($i = 1; $i <= 4; $i++){
+	echo "FILME: $i<br>";
+	 $retornaJSON = json_encode($estoque[$i]);
+	 echo $retornaJSON;
+	 echo "<br><hr>";
+}*/
 //Printa filmes do estoque---------------------------------------------------------------------------------------------
 for($i = 1; $i <= 4; $i++){
 echo "FILME: $i<br>$estoque[$i]<br><hr>";
@@ -48,7 +56,6 @@ for($i = 5; $i <= 10; $i++){
 	}else{
 		echo "Não há leite vencido<br><hr>";
 	}
-
 
 //Printa DVDs correspondente ao ano digitado---------------------------------------------------------------------------
 $anoDigitado = 1997;
